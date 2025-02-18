@@ -5,12 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title></title>
 <style>
-.information {
-	color: red;
+.errorMessage {
+	background-color: red;
+}
+.message {
+	background-color: lightgreen;
 }
 </style>
 </head>
 <body>
-	<div th:attr="class=${messageClass}" th:text="${message}"></div>
+	<form action="index">
+		検索キーワード<input type="text" name="keyword" />
+		<input type="submit" />
+	</form>
+	
+	<div th:if="${errorMessage}" th:text="${errorMessage}" class="errorMessage"></div>
+	<div th:if="${message}" th:text="${message}" class="message"></div>
 </body>
 </html>
