@@ -1,19 +1,22 @@
 package jp.co.spring_practice_feeps.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
 
 	@GetMapping("/index")
-	public String index(String keyword, Model model) {
-		if (keyword == null || keyword.length() == 0) {
-			model.addAttribute("errorMessage", "検索キーワードを入力してください");
+	public String index(HttpSession session) {
+		Integer count = (Integer) session.getAttribute("count");
+		if (count == null) {
+			count = 1;
 		} else {
-			model.addAttribute("message", "入力された検索キーワードは「" + keyword + "」です");
+			count++;
 		}
+		session.setAttribute("count", count);
 
 		return "index";
 	}

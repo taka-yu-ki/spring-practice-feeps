@@ -4,22 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title></title>
-<style>
-.errorMessage {
-	background-color: red;
-}
-.message {
-	background-color: lightgreen;
-}
-</style>
 </head>
 <body>
-	<form action="index">
-		検索キーワード<input type="text" name="keyword" />
-		<input type="submit" />
-	</form>
-	
-	<div th:if="${errorMessage}" th:text="${errorMessage}" class="errorMessage"></div>
-	<div th:if="${message}" th:text="${message}" class="message"></div>
+	<div th:text="${session.count}"></div>
 </body>
 </html>
