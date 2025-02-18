@@ -7,9 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
 	@GetMapping("/index")
-	public String index(String name) {
-		System.out.println(name);
+	public String index() {
+		return "employee/index";
+	}
 
-		return "index";
+	@GetMapping("/new")
+	public String newIndex() {
+		return "employee/new";
 	}
 }
