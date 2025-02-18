@@ -4,8 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title></title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<script th:src="@{/js/common.js}"></script>
 </head>
 <body>
-	<div th:text="${session.count}"></div>
+	<form onSubmit="return checkInput()">
+		<div>氏名を入力して「送信」ボタンを押してください。</div>
+		氏名: <input type="text" id="name" name="name" /><input type="submit" value="送信" />
+	</form>
 </body>
 </html>
